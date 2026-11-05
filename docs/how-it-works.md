@@ -1,6 +1,6 @@
 # How it works
 
-Notes for anyone changing the code. All of this was worked out from the game files and tested in-game.
+Notes for anyone changing the code. Worked out from the game files. Loading and song replacement are tested in-game on every supported game, and the volume boost was measured on PES 2020 and 2021.
 
 ## Where the music lives
 

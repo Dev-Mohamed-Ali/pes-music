@@ -80,7 +80,8 @@ def play_through(folder, game, song):
     installer.remove(folder)
     now = open(list_path, "rb").read() if os.path.exists(list_path) else None
     check("removal restores the list exactly", now == original_list)
-    check("removal leaves no mod files", not [n for n in os.listdir(download) if n in (state.mod_file, installer.NOTE)])
+    leftovers = [n for n in os.listdir(download) if n in (state.mod_file, installer.NOTE, filelist.NAME + ".bak")]
+    check("removal leaves no mod files", not leftovers, leftovers)
 
 
 def upgrade_old_install(source, song):

@@ -386,12 +386,11 @@ def _drop_from_list(download, mod_file):
     kept = [e for e in entries if filelist.entry_name(e) != mod_file]
     if kept:
         if len(kept) != len(entries):
-            shutil.copy2(list_path, list_path + ".bak")
             filelist.write_list(list_path, first, kept)
-        return
-    for path in (list_path, list_path + ".bak"):
-        if os.path.exists(path):
-            os.remove(path)
+    elif os.path.exists(list_path):
+        os.remove(list_path)
+    if os.path.exists(list_path + ".bak"):
+        os.remove(list_path + ".bak")
 
 
 def remove(folder):
